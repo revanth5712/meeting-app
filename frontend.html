@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Meeting App</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <h2>Meeting App (WebRTC + Scheduling)</h2>
+
+  <section class="card">
+    <h3>Schedule a Meeting</h3>
+    <input id="title" placeholder="Title (optional)" />
+    <input id="start" type="datetime-local" />
+    <input id="end" type="datetime-local" />
+    <button id="createMeeting">Create</button>
+    <pre id="createOut"></pre>
+  </section>
+
+  <section class="card">
+    <h3>Join Meeting</h3>
+    <input id="name" placeholder="Your name" />
+    <input id="room" placeholder="Meeting ID (e.g. ABC123)" />
+    <button id="joinBtn">Join</button>
+    <p id="status"></p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>You</h3>
+      <video id="localVideo" autoplay playsinline muted></video>
+      <div class="row">
+        <button id="toggleMic">Mic: On</button>
+        <button id="toggleCam">Cam: On</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Remote</h3>
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Chat</h3>
+    <div id="messages"></div>
+    <div class="row">
+      <input id="msg" placeholder="Message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </section>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
